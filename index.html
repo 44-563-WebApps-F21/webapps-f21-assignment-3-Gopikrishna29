@@ -46,29 +46,118 @@
 
 
 
-    </h5>Information in tabular form</h5>
-    <p>List of food/drinks I wish you will enjoy if you try</p>
-      <table border="2">
-        <tr>
-            <th>Food</th>
-            <th>Location</th>
-            <th>Price</th>
-        <tr>
-          <td>chicken kebab</td>
-          <td>viva Goa indian cuisine</td>
-          <td>320 Rs</td>
-        </tr>
-        <tr>
-          <td>Chicken 65</td>
-          <td>Cafe Goa</td>
-          <td>240 Rs</td>
-        </tr>
-        <tr>
-            <td>Apollo Fish</td>
-            <td>Goa Balti restaurant</td>
-            <td>390 Rs</td>
-          </tr>
-      </table>
+        </h5>Information in tabular form</h5>
+        <p>List of food/drinks I wish you will enjoy if you try</p>
+        <table border="2">
+            <tr>
+                <th>Food</th>
+                <th>Location</th>
+                <th>Price</th>
+            <tr>
+                <td>chicken kebab</td>
+                <td>viva Goa indian cuisine</td>
+                <td>320 Rs</td>
+            </tr>
+            <tr>
+                <td>Chicken 65</td>
+                <td>Cafe Goa</td>
+                <td>240 Rs</td>
+            </tr>
+            <tr>
+                <td>Apollo Fish</td>
+                <td>Goa Balti restaurant</td>
+                <td>390 Rs</td>
+            </tr>
+        </table>
+
+
+        <hr>
+        <h4>Displays Algoritham<h4>
+                <blockquote>In graph theory, a bipartite graph is a special kind of graph that consists of two vertex
+                    sets.
+                    we’ll discuss a general definition. We’ll also present an algorithm to determine whether a given
+                    graph is bipartite or no.
+                </blockquote>
+                <a href="https://cp-algorithms.com/graph/bipartite-check.html" target="blank">Link to source</a>
+
+                <pre>
+  </ul>
+
+
+  <a href="aboutme.html" target="blank">Picture of Superman</a>
+
+  <hr>
+
+  </h3>Information in tabular form</h3>
+  <p>List of food/drinks I wish you will enjoy if you try</p>
+  <table border="1">
+    <tr>
+      <th>Food</th>
+      <th>Location</th>
+      <th>Price</th>
+    <tr>
+      <td>pizza</td>
+      <td>pizzahut</td>
+      <td>200 Rs</td>
+    </tr>
+    <tr>
+      <td>Burger</td>
+      <td>BurgerKing</td>
+      <td>150 Rs</td>
+    </tr>
+    <tr>
+      <td>vapaaad</td>
+      <td>Mytri</td>
+      <td>100 Rs</td>
+    </tr>
+  </table>
+
+  <hr>
+  <h4>Algoritham   Rabin-Karp Algorithm for string matching<h4>
+      <blockquote>The Rabin-Karp algorithm is a string-searching algorithm that uses hashing to find patterns
+        in strings.A string is an abstract data type that consists of a sequence of characters. Letters, words, sentences, 
+        and more can be represented as strings String matching is a very important application of computer science.
+        If you’ve ever searched through a document for a particular word,then you have benefitted from string-matching 
+        technology.String matching can also be used to detect plagiarism by comparing strings in document AA with strings
+        in document BB.
+
+      </blockquote>
+      <a href="https://brilliant.org/wiki/rabin-karp-algorithm/">Source link</a>
+
+      <pre>
+        <code>
+            vector<int> rabin_karp(string const& s, string const& t) {
+                const int p = 31; 
+                const int m = 1e9 + 9;
+                int S = s.size(), T = t.size();
+            
+                vector<long long> p_pow(max(S, T)); 
+                p_pow[0] = 1; 
+                for (int i = 1; i < (int)p_pow.size(); i++) 
+                    p_pow[i] = (p_pow[i-1] * p) % m;
+            
+                vector<long long> h(T + 1, 0); 
+                for (int i = 0; i < T; i++)
+                    h[i+1] = (h[i] + (t[i] - 'a' + 1) * p_pow[i]) % m; 
+                long long h_s = 0; 
+                for (int i = 0; i < S; i++) 
+                    h_s = (h_s + (s[i] - 'a' + 1) * p_pow[i]) % m; 
+            
+                vector<int> occurences;
+                for (int i = 0; i + S - 1 < T; i++) { 
+                    long long cur_h = (h[i+S] + m - h[i]) % m; 
+                    if (cur_h == h_s * p_pow[i] % m)
+                        occurences.push_back(i);
+                }
+                return occurences;
+            }
+          </code>
+        </pre>
+
+
+
+                
+
 
 </body>
 
